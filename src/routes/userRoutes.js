@@ -3,13 +3,14 @@
 // clientes usam para enviar solicitações HTTP para a API.
 
 import { Router } from 'express';
+import userController from '../controllers/userController.js';
+import {validateSchema} from '../middlewares/schemaValidationMiddleware.js';
+import { userSchema } from '../schemas/userSchema.js';
 
 
-const router = Router();
+const userRoutes = Router();
 
-// router.post('/', validateCreateUser, create);
-// router.get('/:id', getById);
-// router.put('/:id', update);
-// router.delete('/:id', remove);
+userRoutes.post('/', validateSchema(userSchema), userController.create)
+// userRoutes.get('/', userController.get)
 
-export default router;
+export default userRoutes;
