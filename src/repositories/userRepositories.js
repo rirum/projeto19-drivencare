@@ -17,6 +17,8 @@ async function create(name, email, password){
     `, [name, email, password]);
 }
 
+
+
 export default{
     findByEmail,
     create
