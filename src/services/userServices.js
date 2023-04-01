@@ -15,8 +15,13 @@ async function create(name, email, password){
     const hashPassword = await bcrypt.hash(password,10);
     await userRepositories.create({name, email, password:hashPassword});
 
+}
 
+async function login(email, password){
+    const{rowCount} = await userRepositories.findByEmail(email)
+    if (!rowCount) return ("Incorrect email or password");
 
+    // const comparePassword = await bcrypt.compareSync(password, rowCount.rows[0].password);
 
 }
 
