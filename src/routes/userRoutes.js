@@ -10,7 +10,7 @@ import { userSchema } from '../schemas/userSchema.js';
 
 const userRoutes = Router();
 
-userRoutes.post('/', validateSchema(userSchema), userController.create)
+userRoutes.post("/signup", validateSchema(userSchema), userController.create)
 // userRoutes.get('/', userController.get)
 
 export default userRoutes;

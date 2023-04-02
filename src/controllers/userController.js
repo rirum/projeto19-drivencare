@@ -2,11 +2,11 @@
 //  criação de respostas a serem enviadas de volta aos clientes.
 
 async function create(req, res){
-    const { name, email, password } = req.body; 
+    const { name, email, password, is_medic } = req.body; 
 
     try{
     
-        await userServices.create({name, email, password})
+        await userServices.create({name, email, password, is_medic})
 
         return res.sendStatus(201);
 

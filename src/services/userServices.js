@@ -1,15 +1,16 @@
-// Services: Lidará com a lógica de negócios.
+// Services: Lidará com a lógica de negócios e a validará.
 
 
 import bcrypt from 'bcrypt'
 import userRepositories from '../repositories/userRepositories.js';
 
 
-async function create(name, email, password){
+async function create(name, email, password, is_medic){
     //só pode existir um email (unique)
     //aqui apenas regra de negocios, joi fica no middleware
 
     const {rowCount} = await userRepositories.findByEmail(email)
+    console.log(rowCount)
     if (rowCount) return "There's already an email registered"
 
     const hashPassword = await bcrypt.hash(password,10);

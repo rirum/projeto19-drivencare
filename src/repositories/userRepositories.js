@@ -10,11 +10,11 @@ async function findByEmail(email){
     );
 }
 
-async function create(name, email, password){
+async function create(name, email, password, is_medic){
     await connectionDB.query(`
-        INSERT INTO users (name, email, password)
-        VALUES ($1, $2, $3) 
-    `, [name, email, password]);
+        INSERT INTO users (name, email, password, is_medic)
+        VALUES ($1, $2, $3, $4) 
+    `, [name, email, password, is_medic]);
 }
 
 
