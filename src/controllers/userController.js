@@ -1,12 +1,13 @@
 // Controllers: Controlará o comportamento da API, incluindo a validação de entrada e a
 //  criação de respostas a serem enviadas de volta aos clientes.
+import userServices from "../services/userServices.js";
 
 async function create(req, res){
-    const { name, email, password, is_medic } = req.body; 
+    const { name, email, password} = req.body; 
 
     try{
     
-        await userServices.create({name, email, password, is_medic})
+        await userServices.create({name, email, password})
 
         return res.sendStatus(201);
 

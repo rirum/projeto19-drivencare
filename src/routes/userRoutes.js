@@ -5,12 +5,12 @@
 import { Router } from 'express';
 import userController from '../controllers/userController.js';
 import {validateSchema} from '../middlewares/schemaValidationMiddleware.js';
-import { userSchema } from '../schemas/userSchema.js';
+import  {patientSignupSchema}  from '../schemas/userSchema.js';
 
 
 const userRoutes = Router();
 
-userRoutes.post("/signup", validateSchema(userSchema), userController.create)
-// userRoutes.get('/', userController.get)
+userRoutes.post("/signup", validateSchema(patientSignupSchema), userController.create)
+
 
 export default userRoutes;
